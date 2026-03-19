@@ -3,192 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MFIX Games</title>
+    <title>Blake Brandon - AI Systems Engineer</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0a0a0a;
-            color: #00ff88;
-            font-family: 'Courier New', monospace;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            color: #1a1a1a;
+            background: #ffffff;
         }
-
-        .header {
-            border-bottom: 2px solid #00ff88;
-            padding-bottom: 1rem;
-            margin-bottom: 3rem;
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        
+        header { 
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 60px 0;
         }
-
-        .header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 0.3rem;
-            color: #00ff88;
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        
+        h1 { 
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #111827;
         }
-
-        .header p {
-            color: #888;
-            margin-top: 0.5rem;
-            font-size: 1rem;
+        
+        .subtitle {
+            font-size: 20px;
+            color: #6366f1;
+            margin-bottom: 20px;
+            font-weight: 500;
         }
-
-        .games {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .game-card {
-            background: #111;
-            border: 1px solid #333;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .game-card:hover {
-            border-color: #00ff88;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
-        }
-
-        .game-title {
-            font-size: 1.8rem;
-            color: #00ff88;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .game-genre {
-            font-size: 0.9rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .game-description {
-            color: #ccc;
-            margin-bottom: 1.5rem;
+        
+        .intro {
+            font-size: 17px;
+            color: #4b5563;
+            max-width: 800px;
             line-height: 1.8;
+            margin-bottom: 24px;
         }
-
-        .game-link {
-            display: inline-block;
-            color: #00ff88;
+        
+        .links {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+        }
+        
+        .links a {
+            color: #6366f1;
             text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid #00ff88;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            font-size: 15px;
+            font-weight: 500;
         }
-
-        .game-link:hover {
-            background: #00ff88;
-            color: #0a0a0a;
+        
+        .links a:hover { text-decoration: underline; }
+        
+        main { padding: 80px 0; }
+        section { margin-bottom: 100px; }
+        
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 48px;
+            color: #111827;
         }
-
-        .game-link.coming-soon {
-            opacity: 0.5;
-            border-color: #666;
-            color: #666;
-            cursor: not-allowed;
+        
+        .featured {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 48px;
+            margin-bottom: 60px;
         }
-
-        .game-link.coming-soon:hover {
-            background: transparent;
-            color: #666;
+        
+        .featured h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #111827;
         }
-
-        .footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            color: #666;
+        
+        .featured p {
+            font-size: 16px;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .tech-tag {
+            background: #eef2ff;
+            color: #6366f1;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+        
+        .app-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .app-card h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+        
+        .app-card p {
+            font-size: 15px;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .features li {
+            font-size: 14px;
+            color: #6b7280;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .features li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-weight: bold;
+        }
+        
+        .code-section {
+            margin-top: 48px;
+        }
+        
+        .code-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #111827;
+        }
+        
+        pre {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 24px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        code {
+            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+        }
+        
+        .code-caption {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: -8px;
+            margin-bottom: 24px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+        }
+        
+        .project-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+        
+        .project-card p {
+            font-size: 15px;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 48px 0;
+            margin-top: 100px;
             text-align: center;
         }
-
-        .footer a {
-            color: #00ff88;
-            text-decoration: none;
+        
+        footer p {
+            color: #6b7280;
+            font-size: 14px;
         }
-
-        .footer a:hover {
-            text-decoration: underline;
+        
+        footer .links {
+            justify-content: center;
+            margin-top: 16px;
         }
-
+        
         @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .header h1 {
-                font-size: 2rem;
-            }
-
-            .game-title {
-                font-size: 1.5rem;
-            }
+            h1 { font-size: 32px; }
+            h2 { font-size: 26px; }
+            .featured { padding: 32px 24px; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>MFIX GAMES</h1>
-        <p>AI-driven narrative experiences where choices matter and worlds remember</p>
-    </div>
-
-    <div class="games">
-        <!-- WARDEN -->
-        <div class="game-card">
-            <div class="game-title">⚔️ WARDEN</div>
-            <div class="game-genre">Dark Fantasy</div>
-            <div class="game-description">
-                Stand against the Void as humanity's last defense. Master 32 ancient Words of power, forge oaths across four kingdoms, and hold the line between reality and oblivion.
+    <header>
+        <div class="container">
+            <h1>Blake Brandon</h1>
+            <p class="subtitle">AI Systems Engineer | Backend Python Developer (LLMs/RAG)</p>
+            <p class="intro">
+                Engineer specializing in AI systems and backend Python, building reliable, real-time, stateful 
+                applications with LLM orchestration and data pipelines. Experienced in enforcing structure on 
+                non-deterministic outputs, closed-loop pipelines (generation → validation → repair), RAG via 
+                embeddings, and resolving concurrency in collaborative systems.
+            </p>
+            <div class="links">
+                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
+                <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
             </div>
-            <a href="https://warden-deuj.onrender.com" class="game-link" target="_blank">PLAY NOW →</a>
         </div>
+    </header>
 
-        <!-- GREYWAKE -->
-        <div class="game-card">
-            <div class="game-title">🌌 THE GREYWAKE</div>
-            <div class="game-genre">Sci-Fi</div>
-            <div class="game-description">
-                A sentient ship, her fractured crew, and the invisible language that binds them. You're chasing a bounty worth 200,000 credits—enough to stop running salvage jobs forever. But when you corner your target in an agricultural dome, surrounded by flowers it planted, it asks you a question: <em>"I was made, not born. Does that make me less real?"</em> Your crew is watching. Your ship AI is listening. The galaxy will remember what you choose. In Greywake, every decision leaves a mark—on your crew's trust, on faction politics, on who you become.
+    <main class="container">
+        <section>
+            <h2>Featured Project</h2>
+            
+            <div class="featured">
+                <h3>Unified AI Workspace — Multi-Agent Pipelines</h3>
+                <p>
+                    Production-grade multi-agent AI system with three integrated applications: Code Generator, 
+                    Essay Writer, and RAG Vector Store. Demonstrates advanced LLM orchestration patterns including 
+                    iterative critique/refinement loops, closed-loop validation, and semantic search via embeddings.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">OpenAI API</span>
+                    <span class="tech-tag">SentenceTransformers</span>
+                    <span class="tech-tag">PyPDF2</span>
+                    <span class="tech-tag">python-docx</span>
+                    <span class="tech-tag">Threading</span>
+                    <span class="tech-tag">REST APIs</span>
+                </div>
+                
+                <div class="app-grid">
+                    <div class="app-card">
+                        <h4>💻 Multi-Agent Code Generator</h4>
+                        <p>Autonomous code generation with planning, research, execution, and validation phases.</p>
+                        <ul class="features">
+                            <li>4-agent pipeline: Planner → Researcher → Executor → Critic</li>
+                            <li>Regex parsing for file extraction</li>
+                            <li>Iterative refinement (up to 5 cycles)</li>
+                            <li>ZIP packaging for multi-file projects</li>
+                            <li>RAG context injection for improved accuracy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h4>📝 Academic Essay Writer</h4>
+                        <p>Structured essay generation with research, outlining, and quality scoring.</p>
+                        <ul class="features">
+                            <li>Research task decomposition</li>
+                            <li>Hierarchical outline generation</li>
+                            <li>6-dimension quality scoring system</li>
+                            <li>Professional DOCX export with formatting</li>
+                            <li>Iterative improvement based on scores</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="app-card">
+                        <h4>🧠 RAG Vector Store</h4>
+                        <p>In-memory semantic search using sentence embeddings to power all applications.</p>
+                        <ul class="features">
+                            <li>SentenceTransformers (all-MiniLM-L6-v2, 384-dim)</li>
+                            <li>Cosine similarity with threshold filtering</li>
+                            <li>Memory pruning (age, size, duplicates)</li>
+                            <li>RESTful CRUD operations</li>
+                            <li>Context injection for Code & Essay agents</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="code-section">
+                    <h4>Core Pattern: Closed-Loop Validation</h4>
+                    <pre><code># Iterative Refinement Loop - Code Generator Example
+for iteration in range(MAX_ITERATIONS):
+    # Plan → Research → Execute
+    tasks = planner.run(goal)
+    research = researcher.run(tasks)
+    result = executor.run(research)
+    
+    # Validate quality
+    critique = critic.run(result)
+    
+    if critique["pass"]:
+        break  # Quality gate passed
+    
+    # Refine with structured feedback
+    goal = f"{goal}\n\nFeedback: {critique['feedback']}"</code></pre>
+                    <p class="code-caption">Generation → Validation → Repair cycle prevents incomplete/broken outputs</p>
+                    
+                    <h4 style="margin-top: 32px;">RAG Context Injection</h4>
+                    <pre><code>def retrieve_memory(query_text):
+    """Query vector store for relevant context"""
+    query_vector = embedding_model.encode(query_text, normalize_embeddings=True)
+    
+    results = []
+    for mem in memory_store:
+        score = cosine_similarity(query_vector, np.array(mem['vector']))
+        results.append((score, mem['text']))
+    
+    results.sort(key=lambda x: x[0], reverse=True)
+    relevant = [text for score, text in results if score > 0.40][:3]
+    
+    return "\n".join(relevant)  # Inject into agent prompts</code></pre>
+                    <p class="code-caption">Semantic search improves factual grounding under token/latency constraints</p>
+                </div>
             </div>
-            <a href="https://greywake.onrender.com" class="game-link" target="_blank">PLAY NOW →</a>
-        </div>
-
-        <!-- SPRAWL -->
-        <div class="game-card">
-            <div class="game-title">🌆 SPRAWL</div>
-            <div class="game-genre">Cyberpunk</div>
-            <div class="game-description">
-                John went too deep into the network and lost his way back to solid ground. Now he works the Sprawl—contracts, deadlines, and whatever else comes his way. GHOST is your tactical overlay, a distributed AI construct running parallel to conscious thought. GHOST speaks to you via Text-to-Speech (TTS), acting as the only audible voice in the simulation. The net is vast. The shell is fragile.
+            
+            <div style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 20px; margin-top: 32px;">
+                <p style="font-size: 14px; color: #92400e; margin: 0;">
+                    <strong>📁 Full Source Code:</strong> Available on 
+                    <a href="https://github.com/blakebrandon-hub" style="color: #6366f1; text-decoration: none; font-weight: 500;">GitHub</a>
+                </p>
             </div>
-            <a href="https://sprawl.onrender.com/" class="game-link" target="_blank">PLAY NOW →</a>
-        </div>
+        </section>
 
-        <!-- BLACK ICHOR -->
-        <div class="game-card">
-            <div class="game-title">🌑 BLACK ICHOR</div>
-            <div class="game-genre">Survival Horror</div>
-            <div class="game-description">
-                Scavenge the ruins. Fortify the Sanctuary. Fight the Ichor. In a world of liquid shadow, the caloric math is absolute. Survive a visceral, text-based reality where every resource is scarce and the silence is your only warning.
+        <section>
+            <h2>Other Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Garden World</h3>
+                    <p>
+                        LLM-driven simulation with XML-like tag grammar parsing for deterministic state mutations 
+                        despite model variability. Scheduler-based time progression advances state server-side even 
+                        when users are offline.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Gemini 2.5</span>
+                        <span class="tech-tag">Imagen 4</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Cron</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Sprawl</h3>
+                    <p>
+                        LLM-constrained narrative engine using strict tag protocol with closed-loop validation 
+                        pipeline (generation → validation → repair). Imagen-driven scene art generation decoupled 
+                        from story writes for reliability.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Gemini/Anthropic</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">Tone.js</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Groove Hub</h3>
+                    <p>
+                        Real-time collaborative media with Socket.IO-backed state synchronization for 40+ concurrent 
+                        users. Server-authoritative event ordering resolves race conditions under simultaneous edits.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask-SocketIO</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">WebSockets</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Swift Cart</h3>
+                    <p>
+                        E-commerce platform with exactly-once order fulfillment via Stripe webhooks, signature 
+                        verification, idempotency keys, and transactional writes. Zero duplicate charges under 
+                        network-failure scenarios.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Stripe</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <h3>CRM System</h3>
+                    <p>
+                        Offline-first intake flow with conflict-aware sync ensuring zero lead loss in low-connectivity 
+                        environments. State-aware email campaigns via Mailgun increased engagement by 35%.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Mailgun</span>
+                        <span class="tech-tag">Sync Engine</span>
+                    </div>
+                </div>
             </div>
-            <a href="https://black-ichor.onrender.com/" class="game-link" target="_blank">PLAY NOW →</a>
-        </div>
-    </div>
+        </section>
 
-    <div class="footer">
-        <p>Built by <a href="https://github.com/blakebrandon-hub" target="_blank">Blake Brandon</a></p>
-    </div>
+        <section>
+            <h2>Technical Skills</h2>
+            
+            <div class="app-grid">
+                <div class="app-card">
+                    <h4>Backend & Frameworks</h4>
+                    <ul class="features">
+                        <li>Flask, Django, Flask-SocketIO</li>
+                        <li>REST APIs, WebSockets</li>
+                        <li>SQLAlchemy, Jinja2</li>
+                    </ul>
+                </div>
+                
+                <div class="app-card">
+                    <h4>AI/Machine Learning</h4>
+                    <ul class="features">
+                        <li>OpenAI API, Google Gemini, Anthropic Claude</li>
+                        <li>SentenceTransformers, scikit-learn, TensorFlow</li>
+                        <li>RAG, vector embeddings, structured prompting</li>
+                    </ul>
+                </div>
+                
+                <div class="app-card">
+                    <h4>Databases & Storage</h4>
+                    <ul class="features">
+                        <li>PostgreSQL, Supabase</li>
+                        <li>Schema design, State management</li>
+                        <li>Transactional updates</li>
+                    </ul>
+                </div>
+                
+                <div class="app-card">
+                    <h4>Systems & DevOps</h4>
+                    <ul class="features">
+                        <li>AWS, Heroku, Docker, Git</li>
+                        <li>Scheduler/Cron jobs, Threading</li>
+                        <li>State machines, Real-time servers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Blake Brandon</p>
+            <div class="links">
+                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
+                <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
