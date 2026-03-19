@@ -13,7 +13,7 @@
             background: #ffffff;
         }
         
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
         
         header { 
             background: #ffffff;
@@ -43,6 +43,51 @@
             margin-bottom: 24px;
         }
         
+        /* Flip card styles */
+        .intro-flip-container {
+            perspective: 1000px;
+            max-width: 800px;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+        
+        .intro-flip-inner {
+            position: relative;
+            width: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .intro-flip-container:hover .intro-flip-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .intro-front, .intro-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        
+        .intro-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transform: rotateY(180deg);
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px dashed #6366f1;
+        }
+        
+        .intro-back::before {
+            content: "👋 Translation for non-engineers:";
+            display: block;
+            font-weight: 600;
+            color: #6366f1;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        
         .links {
             display: flex;
             gap: 24px;
@@ -68,88 +113,113 @@
             color: #111827;
         }
         
-        .featured {
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 48px;
-            margin-bottom: 60px;
+        /* 3x3 grid layout for projects - smaller cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
         
-        .featured h3 {
-            font-size: 28px;
+        @media (min-width: 900px) {
+            .project-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            perspective: 1000px;
+            cursor: pointer;
+            height: 320px;
+            position: relative;
+        }
+        
+        .project-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover .project-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .project-card-front, .project-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 12px;
+        }
+        
+        .project-card-back {
+            transform: rotateY(180deg);
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .project-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             color: #111827;
         }
         
-        .featured p {
-            font-size: 16px;
+        .project-card p {
+            font-size: 14px;
             color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 32px;
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
         
         .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 32px;
+            gap: 8px;
+            margin-top: 12px;
         }
         
         .tech-tag {
             background: #eef2ff;
             color: #6366f1;
-            padding: 6px 16px;
+            padding: 4px 12px;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
-        }
-        
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            margin-top: 32px;
-        }
-        
-        .app-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 32px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-        
-        .app-card h4 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #111827;
-        }
-        
-        .app-card p {
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 20px;
         }
         
         .features {
             list-style: none;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
         
         .features li {
-            font-size: 14px;
+            font-size: 13px;
             color: #6b7280;
-            padding: 6px 0;
-            padding-left: 20px;
+            padding: 4px 0;
+            padding-left: 18px;
             position: relative;
         }
         
@@ -161,88 +231,16 @@
             font-weight: bold;
         }
         
-        .code-section {
-            margin-top: 48px;
-        }
-        
-        .code-section h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: #111827;
-        }
-        
-        pre {
-            background: #1f2937;
-            color: #e5e7eb;
-            padding: 24px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        
-        code {
-            font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
-        }
-        
-        .code-caption {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: -8px;
-            margin-bottom: 24px;
-        }
-        
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-        }
-        
-        .project-card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 32px;
-        }
-        
-        .project-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #111827;
-        }
-        
-        .project-card p {
-            font-size: 15px;
-            color: #4b5563;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        
         footer {
             background: #f9fafb;
             border-top: 1px solid #e5e7eb;
-            padding: 48px 0;
-            margin-top: 100px;
+            padding: 40px 0;
             text-align: center;
         }
         
         footer p {
-            color: #6b7280;
             font-size: 14px;
-        }
-        
-        footer .links {
-            justify-content: center;
-            margin-top: 16px;
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 32px; }
-            h2 { font-size: 26px; }
-            .featured { padding: 32px 24px; }
+            color: #6b7280;
         }
     </style>
 </head>
@@ -251,254 +249,215 @@
         <div class="container">
             <h1>Blake Brandon</h1>
             <p class="subtitle">AI Systems Engineer | Backend Python Developer (LLMs/RAG)</p>
-            <p class="intro">
-                Engineer specializing in AI systems and backend Python, building reliable, real-time, stateful 
-                applications with LLM orchestration and data pipelines. Experienced in enforcing structure on 
-                non-deterministic outputs, closed-loop pipelines (generation → validation → repair), RAG via 
-                embeddings, and resolving concurrency in collaborative systems.
-            </p>
+            <div class="intro-flip-container">
+                <div class="intro-flip-inner">
+                    <div class="intro intro-front">
+                        Engineer specializing in AI systems and backend Python, building reliable, real-time, stateful
+                        applications with LLM orchestration and data pipelines. Experienced in enforcing structure on
+                        non-deterministic outputs through closed-loop pipelines (generation → validation → repair),
+                        RAG via embeddings, and resolving concurrency in collaborative systems. Focused on
+                        determinism, data integrity, and production-scale systems.
+                    </div>
+                    <div class="intro intro-back">
+                        I build software that makes AI tools (like ChatGPT) work reliably in real applications. Think of it like this: AI can be unpredictable, so I create systems that check the AI's work, catch mistakes, and make sure it gives consistent, useful results. I also build full websites and backend systems that store data, handle multiple users at once, and keep everything running smoothly in production.
+                    </div>
+                </div>
+            </div>
             <div class="links">
-                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
+                <a href="/cdn-cgi/l/email-protection#b4d6d8d5dfd1d6c6d5dad0dbda9ad0d1c2f4d3d9d5ddd89ad7dbd9">Email</a>
                 <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <section>
-            <h2>Featured Project</h2>
-            
-            <div class="featured">
-                <h3>Unified AI Workspace — Multi-Agent Pipelines</h3>
-                <p>
-                    Production-grade multi-agent AI system with three integrated applications: Code Generator, 
-                    Essay Writer, and RAG Vector Store. Demonstrates advanced LLM orchestration patterns including 
-                    iterative critique/refinement loops, closed-loop validation, and semantic search via embeddings.
-                </p>
+    <main>
+        <div class="container">
+            <section>
+                <h2>Selected Projects</h2>
                 
-                <div class="tech-stack">
-                    <span class="tech-tag">Flask</span>
-                    <span class="tech-tag">OpenAI API</span>
-                    <span class="tech-tag">SentenceTransformers</span>
-                    <span class="tech-tag">PyPDF2</span>
-                    <span class="tech-tag">python-docx</span>
-                    <span class="tech-tag">Threading</span>
-                    <span class="tech-tag">REST APIs</span>
-                </div>
-                
-                <div class="app-grid">
-                    <div class="app-card">
-                        <h4>💻 Multi-Agent Code Generator</h4>
-                        <p>Autonomous code generation with planning, research, execution, and validation phases.</p>
-                        <ul class="features">
-                            <li>4-agent pipeline: Planner → Researcher → Executor → Critic</li>
-                            <li>Regex parsing for file extraction</li>
-                            <li>Iterative refinement (up to 5 cycles)</li>
-                            <li>ZIP packaging for multi-file projects</li>
-                            <li>RAG context injection for improved accuracy</li>
-                        </ul>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>Multi-Agent AI Workspace (LLM Orchestration + RAG)</h3>
+                                <p>
+                                    Built a web-based AI workspace enabling users to generate code, essays, and resumes
+                                    through multi-step LLM pipelines with downloadable outputs. Orchestrated structured 
+                                    generation workflows with iterative critique/refinement loops. Implemented lightweight 
+                                    RAG (embeddings + similarity search) to inject relevant context into generation.
+                                </p>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">OpenAI</span>
+                                    <span class="tech-tag">Claude</span>
+                                    <span class="tech-tag">RAG</span>
+                                    <span class="tech-tag">Embeddings</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <img src="multi_agent_workspace.png" alt="Multi-Agent AI Workspace Screenshot">
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="app-card">
-                        <h4>📝 Academic Essay Writer</h4>
-                        <p>Structured essay generation with research, outlining, and quality scoring.</p>
-                        <ul class="features">
-                            <li>Research task decomposition</li>
-                            <li>Hierarchical outline generation</li>
-                            <li>6-dimension quality scoring system</li>
-                            <li>Professional DOCX export with formatting</li>
-                            <li>Iterative improvement based on scores</li>
-                        </ul>
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>Ulite Lighting — E-Commerce Platform (Client Project)</h3>
+                                <p>
+                                    Built and deployed a production e-commerce platform for a commercial client.
+                                    Designed product catalog (100+ SKUs) with filtering, technical documentation, 
+                                    and structured data management. Integrated Supabase backend for inventory, assets, and 
+                                    content delivery.
+                                </p>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">E-Commerce</span>
+                                    <span class="tech-tag">Supabase</span>
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <img src="ulite_lighting.png" alt="Ulite Lighting E-Commerce Platform Screenshot">
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="app-card">
-                        <h4>🧠 RAG Vector Store</h4>
-                        <p>In-memory semantic search using sentence embeddings to power all applications.</p>
-                        <ul class="features">
-                            <li>SentenceTransformers (all-MiniLM-L6-v2, 384-dim)</li>
-                            <li>Cosine similarity with threshold filtering</li>
-                            <li>Memory pruning (age, size, duplicates)</li>
-                            <li>RESTful CRUD operations</li>
-                            <li>Context injection for Code & Essay agents</li>
-                        </ul>
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>Multi-User Narrative Simulation (Stateful LLM System) (Garden World)</h3>
+                                <p>
+                                    Built a multi-user simulation where humans and AI interact over shared persistent world
+                                    state via API. Designed LLM-driven system that emits structured control tags, parsed into 
+                                    deterministic state updates (inventory, environment, entities). Implemented persistent 
+                                    state layer tracking world objects, locations, and time-based changes across sessions.
+                                </p>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">Gemini</span>
+                                    <span class="tech-tag">Supabase</span>
+                                    <span class="tech-tag">State Management</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <img src="garden_world.png" alt="Garden World Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>LLM Simulation with Structured Execution Protocol (Sprawl)</h3>
+                                <p>
+                                    Built a full-stack system where LLM outputs are constrained by a formal tag schema and
+                                    compiled into deterministic state transitions. Designed strict execution protocol (HP, trace, 
+                                    inventory, jobs, etc.) parsed into backend state mutations. Implemented real-time UI 
+                                    reflecting system state with dynamic updates from LLM-driven events.
+                                </p>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Flask</span>
+                                    <span class="tech-tag">Gemini</span>
+                                    <span class="tech-tag">Claude</span>
+                                    <span class="tech-tag">State Machines</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <img src="sprawl.png" alt="Sprawl Screenshot">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-card-front">
+                                <h3>CRM Platform — Offline-First Data & Automation System</h3>
+                                <p>
+                                    Built offline-first ingestion system with conflict-aware sync (local → server).
+                                    Designed automated email campaign pipeline with deterministic state updates.
+                                    Improved engagement by 35% while maintaining data consistency.
+                                </p>
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Django</span>
+                                    <span class="tech-tag">Mailgun</span>
+                                    <span class="tech-tag">Offline-First</span>
+                                    <span class="tech-tag">PostgreSQL</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <img src="crm_platform.png" alt="CRM Platform Screenshot">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="code-section">
-                    <h4>Core Pattern: Closed-Loop Validation</h4>
-                    <pre><code># Iterative Refinement Loop - Code Generator Example
-for iteration in range(MAX_ITERATIONS):
-    # Plan → Research → Execute
-    tasks = planner.run(goal)
-    research = researcher.run(tasks)
-    result = executor.run(research)
-    
-    # Validate quality
-    critique = critic.run(result)
-    
-    if critique["pass"]:
-        break  # Quality gate passed
-    
-    # Refine with structured feedback
-    goal = f"{goal}\n\nFeedback: {critique['feedback']}"</code></pre>
-                    <p class="code-caption">Generation → Validation → Repair cycle prevents incomplete/broken outputs</p>
-                    
-                    <h4 style="margin-top: 32px;">RAG Context Injection</h4>
-                    <pre><code>def retrieve_memory(query_text):
-    """Query vector store for relevant context"""
-    query_vector = embedding_model.encode(query_text, normalize_embeddings=True)
-    
-    results = []
-    for mem in memory_store:
-        score = cosine_similarity(query_vector, np.array(mem['vector']))
-        results.append((score, mem['text']))
-    
-    results.sort(key=lambda x: x[0], reverse=True)
-    relevant = [text for score, text in results if score > 0.40][:3]
-    
-    return "\n".join(relevant)  # Inject into agent prompts</code></pre>
-                    <p class="code-caption">Semantic search improves factual grounding under token/latency constraints</p>
+                <div style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 20px; margin-top: 32px;">
+                    <p style="font-size: 14px; color: #92400e; margin: 0;">
+                        <strong>📁 Full Source Code:</strong> Available on 
+                        <a href="https://github.com/blakebrandon-hub" style="color: #6366f1; text-decoration: none; font-weight: 500;">GitHub</a>
+                    </p>
                 </div>
-            </div>
-            
-            <div style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 20px; margin-top: 32px;">
-                <p style="font-size: 14px; color: #92400e; margin: 0;">
-                    <strong>📁 Full Source Code:</strong> Available on 
-                    <a href="https://github.com/blakebrandon-hub" style="color: #6366f1; text-decoration: none; font-weight: 500;">GitHub</a>
-                </p>
-            </div>
-        </section>
+            </section>
 
-        <section>
-            <h2>Other Projects</h2>
-            
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Garden World</h3>
-                    <p>
-                        LLM-driven simulation with XML-like tag grammar parsing for deterministic state mutations 
-                        despite model variability. Scheduler-based time progression advances state server-side even 
-                        when users are offline.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Gemini 2.5</span>
-                        <span class="tech-tag">Imagen 4</span>
-                        <span class="tech-tag">Supabase</span>
-                        <span class="tech-tag">Cron</span>
+            <section>
+                <h2>Technical Skills</h2>
+                
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Languages</h3>
+                        <ul class="features">
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Backend</h3>
+                        <ul class="features">
+                            <li>Flask, Django</li>
+                            <li>REST APIs, WebSockets</li>
+                            <li>SQLAlchemy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>AI/LLMs</h3>
+                        <ul class="features">
+                            <li>OpenAI, Claude, Gemini</li>
+                            <li>RAG, embeddings</li>
+                            <li>Structured prompting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Data</h3>
+                        <ul class="features">
+                            <li>PostgreSQL</li>
+                            <li>Supabase</li>
+                            <li>Schema design</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h3>Systems</h3>
+                        <ul class="features">
+                            <li>AWS, Docker</li>
+                            <li>Concurrency, schedulers</li>
+                            <li>Transactional systems</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="project-card">
-                    <h3>Sprawl</h3>
-                    <p>
-                        LLM-constrained narrative engine using strict tag protocol with closed-loop validation 
-                        pipeline (generation → validation → repair). Imagen-driven scene art generation decoupled 
-                        from story writes for reliability.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Gemini/Anthropic</span>
-                        <span class="tech-tag">Supabase</span>
-                        <span class="tech-tag">Tone.js</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Groove Hub</h3>
-                    <p>
-                        Real-time collaborative media with Socket.IO-backed state synchronization for 40+ concurrent 
-                        users. Server-authoritative event ordering resolves race conditions under simultaneous edits.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask-SocketIO</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">WebSockets</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>Swift Cart</h3>
-                    <p>
-                        E-commerce platform with exactly-once order fulfillment via Stripe webhooks, signature 
-                        verification, idempotency keys, and transactional writes. Zero duplicate charges under 
-                        network-failure scenarios.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Stripe</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <h3>CRM System</h3>
-                    <p>
-                        Offline-first intake flow with conflict-aware sync ensuring zero lead loss in low-connectivity 
-                        environments. State-aware email campaigns via Mailgun increased engagement by 35%.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Mailgun</span>
-                        <span class="tech-tag">Sync Engine</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Technical Skills</h2>
-            
-            <div class="app-grid">
-                <div class="app-card">
-                    <h4>Backend & Frameworks</h4>
-                    <ul class="features">
-                        <li>Flask, Django, Flask-SocketIO</li>
-                        <li>REST APIs, WebSockets</li>
-                        <li>SQLAlchemy, Jinja2</li>
-                    </ul>
-                </div>
-                
-                <div class="app-card">
-                    <h4>AI/Machine Learning</h4>
-                    <ul class="features">
-                        <li>OpenAI API, Google Gemini, Anthropic Claude</li>
-                        <li>SentenceTransformers, scikit-learn, TensorFlow</li>
-                        <li>RAG, vector embeddings, structured prompting</li>
-                    </ul>
-                </div>
-                
-                <div class="app-card">
-                    <h4>Databases & Storage</h4>
-                    <ul class="features">
-                        <li>PostgreSQL, Supabase</li>
-                        <li>Schema design, State management</li>
-                        <li>Transactional updates</li>
-                    </ul>
-                </div>
-                
-                <div class="app-card">
-                    <h4>Systems & DevOps</h4>
-                    <ul class="features">
-                        <li>AWS, Heroku, Docker, Git</li>
-                        <li>Scheduler/Cron jobs, Threading</li>
-                        <li>State machines, Real-time servers</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Blake Brandon</p>
-            <div class="links">
-                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
+            <p>&copy; 2026 Blake Brandon</p>
+            <div class="links" style="justify-content: center; margin-top: 16px;">
+                <a href="/cdn-cgi/l/email-protection#80e2ece1ebe5e2f2e1eee4efeeaee4e5f6c0e7ede1e9ecaee3efed">Email</a>
                 <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                <a href="https://linkedin.com/in/blake-e-bran
