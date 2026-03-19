@@ -161,16 +161,16 @@
             }
         }
         
-        /* 3x3 grid layout for projects - smaller cards */
+        /* 2x2 grid layout for projects */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
         }
         
         @media (min-width: 900px) {
             .project-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -267,13 +267,12 @@
         }
         
         .project-card:hover {
-            transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(0,0,0,0.1);
         }
         
         @media (max-width: 768px) {
             .project-card:hover {
-                transform: none;
+                box-shadow: none;
             }
         }
         
@@ -509,28 +508,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="project-card">
-                        <div class="project-card-inner">
-                            <div class="project-card-front">
-                                <h3>CRM Platform — Offline-First Data & Automation System</h3>
-                                <p>
-                                    Built offline-first ingestion system with conflict-aware sync (local → server).
-                                    Designed automated email campaign pipeline with deterministic state updates.
-                                    Improved engagement by 35% while maintaining data consistency.
-                                </p>
-                                <div class="tech-stack">
-                                    <span class="tech-tag">Django</span>
-                                    <span class="tech-tag">Mailgun</span>
-                                    <span class="tech-tag">Offline-First</span>
-                                    <span class="tech-tag">PostgreSQL</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <img src="crm_platform.png" alt="CRM Platform Screenshot">
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <div style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 20px; margin-top: 32px;">
@@ -598,14 +575,14 @@
         <div class="container">
             <p>&copy; 2026 Blake Brandon</p>
             <div class="links" style="justify-content: center; margin-top: 16px;">
-                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
+                <a href="/cdn-cgi/l/email-protection#2a48464b414f48584b444e4544044e4f5c6a4d474b434604494547">Email</a>
                 <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile tap-to-flip functionality for project cards
         function setupMobileFlip() {
             const projectCards = document.querySelectorAll('.project-card');
@@ -630,11 +607,4 @@
             } else {
                 // Remove flipped class on desktop
                 const projectCards = document.querySelectorAll('.project-card');
-                projectCards.forEach(card => {
-                    card.classList.remove('flipped');
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+                pro
