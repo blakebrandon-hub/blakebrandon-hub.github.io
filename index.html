@@ -221,6 +221,10 @@
             .project-card.flipped .project-card-inner {
                 transform: rotateY(180deg);
             }
+            
+            .project-card-front, .project-card-back {
+                position: absolute;
+            }
         }
         
         .project-card-front, .project-card-back {
@@ -234,7 +238,6 @@
         
         @media (max-width: 768px) {
             .project-card-front, .project-card-back {
-                position: relative;
                 min-height: 240px;
             }
             
@@ -242,18 +245,8 @@
                 display: block;
             }
             
-            .project-card.flipped .project-card-front {
-                display: none;
-            }
-            
             .project-card-back {
-                display: none;
-            }
-            
-            .project-card.flipped .project-card-back {
                 display: flex;
-                position: relative;
-                transform: none;
             }
         }
         
@@ -401,6 +394,9 @@
                         non-deterministic outputs through closed-loop pipelines (generation → validation → repair),
                         RAG via embeddings, and resolving concurrency in collaborative systems. Focused on
                         determinism, data integrity, and production-scale systems.
+                        <div style="margin-top: 12px; font-size: 13px; color: #9ca3af; font-style: italic;">
+                            💡 Hover (or tap) for plain English version
+                        </div>
                     </div>
                     <div class="intro intro-back">
                         I build software that makes AI tools (like ChatGPT) work reliably in real applications. Think of it like this: AI can be unpredictable, so I create systems that check the AI's work, catch mistakes, and make sure it gives consistent, useful results. I also build full websites and backend systems that store data, handle multiple users at once, and keep everything running smoothly in production.
@@ -602,31 +598,43 @@
         <div class="container">
             <p>&copy; 2026 Blake Brandon</p>
             <div class="links" style="justify-content: center; margin-top: 16px;">
-                <a href="/cdn-cgi/l/email-protection#ff9d939e949a9d8d9e919b9091d19b9a89bf98929e9693d19c9092">Email</a>
+                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
                 <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Mobile tap-to-flip functionality
-        if (window.innerWidth <= 768) {
+    <script>
+        // Mobile tap-to-flip functionality for project cards
+        function setupMobileFlip() {
             const projectCards = document.querySelectorAll('.project-card');
             
             projectCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.classList.toggle('flipped');
+                card.addEventListener('click', function(e) {
+                    // Only on mobile
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('flipped');
+                    }
                 });
             });
         }
         
+        // Initialize on load
+        setupMobileFlip();
+        
         // Re-check on resize
         window.addEventListener('resize', function() {
             if (window.innerWidth <= 768) {
+                setupMobileFlip();
+            } else {
+                // Remove flipped class on desktop
                 const projectCards = document.querySelectorAll('.project-card');
                 projectCards.forEach(card => {
-                    if (!card.hasAttribute('data-mobile-listener')) {
-                        card.setAttribute('data-mobile-listener', 'true');
-                        card.addEventListener('click', function() {
-                            th
+                    card.classList.remove('flipped');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
