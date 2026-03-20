@@ -495,10 +495,9 @@
                             <div class="project-card-front">
                                 <h3>Sprawl — Frontier-Model Cyberpunk RPG</h3>
                                 <p>
-                                    Built a full-stack system where LLM outputs are constrained by a formal tag schema and
-                                    compiled into deterministic state transitions. Designed strict execution protocol (HP, trace, 
-                                    inventory, jobs, etc.) parsed into backend state mutations. Implemented real-time UI 
-                                    reflecting system state with dynamic updates from LLM-driven events.
+                                    Built a cyberpunk RPG where a frontier LLM coordinates 16 game systems through structured tag emission. Requires frontier models (GPT-5, Claude Opus/Sonnet, Gemini Pro) due to cognitive load — smaller models forget tags or drop them under complexity.
+                                    16-tag state grammar coordinates: HP, faction reputation (3 factions), inventory/augmentations (5 body vectors), location, jobs, combat, encounters, hacking, surveillance trace, neural strain, grid status, alerts, procedural audio (Tone.js + JSON), contextual advertising, AI suggestions, calls, contact status.
+                                    Technical challenges: Dual-LLM architecture (Narrator + GHOST AI), multi-tag coordination (3-5 simultaneous tags per response), JSON encoding in tags, Imagen 4 scene generation with feed-detection logic.
                                 </p>
                                 <div class="tech-stack">
                                     <span class="tech-tag">Flask</span>
