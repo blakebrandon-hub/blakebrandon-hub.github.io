@@ -1230,4 +1230,51 @@
             const title = document.getElementById('addJobTitle').value.trim(); const company = document.getElementById('addJobCompany').value.trim(); const location = document.getElementById('addJobLocation').value.trim(); const url = document.getElementById('addJobUrl').value.trim();
             if (!title || !company || !url) return alert('Title, company, and URL are required');
             fetch('/api/jobs/add', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ title, company, location, url }) }).then(r => r.json()).then(data => {
-                if (data.success) { closeAddJobForm(); loadJobs(); } else alert(data.error ||
+                if (data.success) { closeAddJobForm(); loadJobs(); } else alert(data.error || 'Failed to add job');
+            });
+        }
+        function exportJobs() { window.location.href = '/api/jobs/export'; }
+
+        // ==========================================
+        // CHATBOT LOGIC
+        // ==========================================
+        function toggleChatbot() { document.getElementById('chatbotWindow').classList.toggle('active'); }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            input.value = '';
+
+            const typingId = addMessage('Typing...', 'bot');
+
+            try {
+                const response = await fetch('/chat', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message}) });
+                const data = await response.json();
+                document.getElementById(typingId).remove();
+                addMessage(data.reply, 'bot');
+            } catch (error) {
+                document.getElementById(typingId).remove();
+                addMessage('Sorry, something went wrong. Please try again.', 'bot');
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageId = 'msg-' + Date.now();
+            const messageHTML = `
+                <div class="chatbot-message ${sender}" id="${messageId}">
+                    <div class="avatar">${sender === 'bot' ? '🤖' : '👤'}</div>
+                    <div class="bubble">${escapeHtml(text)}</div>
+                </div>
+            `;
+            messagesDiv.insertAdjacentHTML('beforeend', messageHTML);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            return messageId;
+        }
+
+    </script>
+</body>
+</html>
