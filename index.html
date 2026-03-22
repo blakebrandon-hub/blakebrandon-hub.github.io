@@ -738,7 +738,7 @@
             document.getElementById('codeDownload').style.display = 'none';
             
             try {
-                const res = await fetch('portfolio-backend-pearl-ten.vercel.app/api/code/generate', {
+                const res = await fetch('https://portfolio-backend-pearl-ten.vercel.app/api/code/generate', {
                     method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({goal})
                 });
                 codeJobId = (await res.json()).job_id;
