@@ -24,7 +24,32 @@
         .card { background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; padding: 30px; margin-bottom: 20px; }
         .header { text-align: center; color: white; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { 
+            .grid-2 { grid-template-columns: 1fr; } 
+            body { padding: 10px; }
+            .container { padding: 0; }
+            .card { padding: 20px; margin-bottom: 15px; border-radius: 12px; }
+            .header { margin-bottom: 20px; }
+            .header h1 { font-size: 28px !important; }
+            .header p { font-size: 14px !important; }
+            .portfolio-header h1 { font-size: 32px !important; }
+            .portfolio-subtitle { font-size: 16px !important; }
+            .portfolio-intro { font-size: 15px !important; }
+            .portfolio-links { flex-direction: column; gap: 12px; }
+            .portfolio-links a { text-align: center; padding: 10px; background: #f3f4f6; border-radius: 8px; }
+            .project-grid { grid-template-columns: 1fr !important; gap: 20px; }
+            .project-card { padding: 20px; min-height: auto; }
+            .project-card h3 { font-size: 16px; }
+            .project-card p { font-size: 13px; }
+            .tech-stack { gap: 6px; }
+            .tech-tag { font-size: 11px; padding: 3px 10px; }
+            textarea, input[type="text"], input[type="file"], select { font-size: 16px; padding: 12px; }
+            .btn-primary, .btn-secondary { font-size: 14px; padding: 10px 20px; }
+            .examples-box { padding: 12px; }
+            .example-item { font-size: 13px; padding: 6px; }
+            label { font-size: 1em; }
+            .label-desc { font-size: 0.8em; }
+        }
 
         /* Forms & Inputs */
         label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 1.1em; color: #1e293b; }
@@ -111,7 +136,10 @@
 <body>
 
     <div id="tab-portfolio" class="tab-content active container">
-
+        <div class="header">
+            <h1 style="margin-bottom: 5px;">AI Systems Engineer</h1>
+            <p>Welcome to my workspace and portfolio.</p>
+        </div>
 
         <div class="card portfolio-header">
             <h1>Blake Brandon</h1>
