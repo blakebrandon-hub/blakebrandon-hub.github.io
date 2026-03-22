@@ -165,7 +165,7 @@
                 </div>
             </div>
             <div class="portfolio-links">
-                <a href="mailto:blakebrandon.dev@gmail.com">Email</a>
+                <a href="/cdn-cgi/l/email-protection#87e5ebe6ece2e5f5e6e9e3e8e9a9e3e2f1c7e0eae6eeeba9e4e8ea">Email</a>
                 <a href="https://github.com/blakebrandon-hub" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/blake-e-brandon" target="_blank">LinkedIn</a>
             </div>
@@ -185,9 +185,9 @@
                         <span class="tech-tag">Flask</span>
                         <span class="tech-tag">Python</span>
                     </div>
-                    <button onclick="switchTab('code')" style="margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s;">
-                        View Demo →
-                    </button>
+                    <a href="https://github.com/blakebrandon-hub/Unified-AI-Workspace" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        View Code →
+                    </a>
                 </div>
                 
                 <div class="project-card">
@@ -201,9 +201,9 @@
                         <span class="tech-tag">Flask</span>
                         <span class="tech-tag">Python</span>
                     </div>
-                    <button onclick="switchTab('essay')" style="margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s;">
-                        View Demo →
-                    </button>
+                    <a href="https://github.com/blakebrandon-hub/Unified-AI-Workspace" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        View Code →
+                    </a>
                 </div>
                 
                 <div class="project-card">
@@ -217,9 +217,9 @@
                         <span class="tech-tag">RAG</span>
                         <span class="tech-tag">NumPy</span>
                     </div>
-                    <button onclick="switchTab('rag')" style="margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s;">
-                        View Demo →
-                    </button>
+                    <a href="https://github.com/blakebrandon-hub/Unified-AI-Workspace" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        View Code →
+                    </a>
                 </div>
             </div>
             
@@ -636,7 +636,7 @@
 
 
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // --- Navigation ---
         function switchTab(tabId) {
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -1230,11 +1230,4 @@
             const title = document.getElementById('addJobTitle').value.trim(); const company = document.getElementById('addJobCompany').value.trim(); const location = document.getElementById('addJobLocation').value.trim(); const url = document.getElementById('addJobUrl').value.trim();
             if (!title || !company || !url) return alert('Title, company, and URL are required');
             fetch('/api/jobs/add', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ title, company, location, url }) }).then(r => r.json()).then(data => {
-                if (data.success) { closeAddJobForm(); loadJobs(); } else alert(data.error || 'Failed to add job');
-            });
-        }
-        function exportJobs() { window.location.href = '/api/jobs/export'; }
-
-    </script>
-</body>
-</html>
+                if (data.success) { closeAddJobForm(); loadJobs(); } else alert(data.error ||
