@@ -150,17 +150,20 @@
             <div class="intro-flip-container">
                 <div class="intro-flip-inner">
                     <div class="portfolio-intro intro-front">
-                        Engineer specializing in AI systems and backend Python, building reliable, real-time, stateful
-                        applications with LLM orchestration and data pipelines. Experienced in enforcing structure on
-                        non-deterministic outputs through closed-loop pipelines (generation → validation → repair),
-                        RAG via embeddings, and resolving concurrency in collaborative systems. Focused on
+                        Self-taught engineer with no formal CS background — started at 30, line by line, before agentic
+                        tools existed. Specializes in AI systems and backend Python, building reliable, real-time,
+                        stateful applications with LLM orchestration and data pipelines. Experienced in enforcing
+                        structure on non-deterministic outputs through closed-loop pipelines (generation → validation →
+                        repair), RAG via embeddings and client-side vector memory, provider-agnostic AI integration
+                        (Gemini/Claude/GPT), and resolving concurrency in collaborative systems. Track record spans
+                        client delivery, internal tooling, and a public platform with an active user base. Focused on
                         determinism, data integrity, and production-scale systems.
                         <div style="margin-top: 12px; font-size: 13px; color: #9ca3af; font-style: italic;">
                             💡 Hover (or tap) for plain English version
                         </div>
                     </div>
                     <div class="portfolio-intro intro-back">
-                        I build software that makes AI tools (like ChatGPT) work reliably in real applications. Think of it like this: AI can be unpredictable, so I create systems that check the AI's work, catch mistakes, and make sure it gives consistent, useful results. I also build full websites and backend systems that store data, handle multiple users at once, and keep everything running smoothly in production.
+                        I taught myself to code at 30 — before AI coding assistants existed, so I learned it the hard way, line by line. Now I build software that makes AI tools (like ChatGPT) work reliably in real applications: AI can be unpredictable, so I create systems that check the AI's work, catch mistakes, and make sure it gives consistent, useful results. I've shipped this across client projects, internal tools, and a public platform with a real, active community.
                     </div>
                 </div>
             </div>
@@ -175,41 +178,25 @@
             <h2 style="font-size: 28px; margin-bottom: 30px; color: #111827;">Selected Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>Multi-Agent Code Generator</h3>
+                    <h3>Unified Developer Interface (UDI)</h3>
                     <p>
-                        AI-powered code generation with autonomous planning, research, and execution. Uses separate planner, researcher, executor, and critic agents to build complete applications through iterative improvement loops.
+                        Multi-agent dev workbench unifying multi-provider LLM chat, a sandboxed terminal/file manager, and a configurable executor + critic agent pipeline. Structured tag protocol for file writes, shell commands, and tests, plus human-in-the-loop pausing.
                     </p>
                     <div class="tech-stack">
-                        <span class="tech-tag">OpenAI</span>
                         <span class="tech-tag">Multi-Agent</span>
+                        <span class="tech-tag">Sandboxed Execution</span>
                         <span class="tech-tag">Flask</span>
                         <span class="tech-tag">Python</span>
                     </div>
-                    <a href="https://github.com/blakebrandon-hub/5-in-1-AI-Workspace" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                    <a href="https://github.com/blakebrandon-hub/Unified-Developer-Interface" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
                         View Code →
                     </a>
                 </div>
-                
-                <div class="project-card">
-                    <h3>AI Essay Writer</h3>
-                    <p>
-                        Multi-agent essay generation system with iterative improvement loops. Uses separate planner, researcher, writer, and critic agents to produce high-quality essays through structured workflow and feedback cycles.
-                    </p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">OpenAI</span>
-                        <span class="tech-tag">Multi-Agent</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Python</span>
-                    </div>
-                    <a href="https://github.com/blakebrandon-hub/5-in-1-AI-Workspace" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
-                        View Code →
-                    </a>
-                </div>
-                
+
                 <div class="project-card">
                     <h3>RAG Vector Store</h3>
                     <p>
-                        Retrieval-augmented generation system using sentence transformers for semantic search. Stores and retrieves contextual information through embedding-based similarity matching to enhance AI agent responses.
+                        Retrieval-augmented generation system using SBERT sentence embeddings for semantic search. Cosine-similarity search with top-k retrieval, age/size-based memory pruning, and an interactive dashboard for monitoring stored memories and search scores.
                     </p>
                     <div class="tech-stack">
                         <span class="tech-tag">Sentence Transformers</span>
@@ -217,8 +204,70 @@
                         <span class="tech-tag">RAG</span>
                         <span class="tech-tag">NumPy</span>
                     </div>
-                    <a href="https://github.com/blakebrandon-hub/5-in-1-AI-Workspace" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                    <a href="https://github.com/blakebrandon-hub/Production-RAG-System" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
                         View Code →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>Ulite Lighting</h3>
+                    <p>
+                        Production e-commerce platform built and deployed for a commercial client. Product catalog with 100+ SKUs, filtering, technical documentation, and structured data management on a Supabase backend.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Client Project</span>
+                        <span class="tech-tag">E-Commerce</span>
+                        <span class="tech-tag">Supabase</span>
+                    </div>
+                    <a href="https://github.com/blakebrandon-hub" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        View Code →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>CRM Platform</h3>
+                    <p>
+                        Offline-first ingestion system with conflict-aware local-to-server sync, paired with an automated email campaign pipeline built on deterministic state updates. Improved engagement by 35% while maintaining data consistency.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Offline-First</span>
+                        <span class="tech-tag">Data Integrity</span>
+                        <span class="tech-tag">Automation</span>
+                    </div>
+                    <a href="https://github.com/blakebrandon-hub" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        View Code →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>AI RPG Engine</h3>
+                    <p>
+                        Reusable Flask/LLM narrator engine (app.py) reskinned across 9 genre-distinct text RPGs on AI Playable Fiction. Stateless narration architecture, client-side vector memory (The Stone), and independent provider routing for narration vs. image generation.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">LLM Orchestration</span>
+                        <span class="tech-tag">Vector Memory</span>
+                        <span class="tech-tag">Multi-Provider</span>
+                        <span class="tech-tag">Flask</span>
+                    </div>
+                    <a href="https://github.com/blakebrandon-hub/Valdmere" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        View Code →
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3>AI Playable Fiction</h3>
+                    <p>
+                        Public platform for discovering and publishing AI-narrated games — browse/filter by genre, developer devlogs, user accounts, and a dual-path submission system (direct link or GitHub-repo-to-Vercel deploy). 21 published titles (9 self-authored) with an active 200+ member community.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Vercel</span>
+                        <span class="tech-tag">Platform</span>
+                        <span class="tech-tag">Community</span>
+                    </div>
+                    <a href="https://ai-playable-fiction.vercel.app/" target="_blank" style="display: block; margin-top: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; transition: transform 0.2s; text-align: center; text-decoration: none;">
+                        Visit Site →
                     </a>
                 </div>
             </div>
@@ -226,7 +275,7 @@
             <div style="background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 20px; margin-top: 32px;">
                 <p style="font-size: 14px; color: #92400e; margin: 0;">
                     <strong>📁 Full Source Code:</strong> Available on 
-                    <a href="https://github.com/blakebrandon-hub/5-in-1-AI-Workspace" style="color: #6366f1; text-decoration: none; font-weight: 500;">GitHub</a>
+                    <a href="https://github.com/blakebrandon-hub" style="color: #6366f1; text-decoration: none; font-weight: 500;">GitHub</a>
                 </p>
             </div>
         </div>
@@ -255,6 +304,8 @@
                     <ul class="features">
                         <li>OpenAI, Claude, Gemini</li>
                         <li>RAG, embeddings</li>
+                        <li>Client-side vector memory</li>
+                        <li>Multi-provider orchestration</li>
                         <li>Structured prompting</li>
                     </ul>
                 </div>
@@ -262,7 +313,7 @@
                     <h3>Data & Systems</h3>
                     <ul class="features">
                         <li>PostgreSQL, Supabase</li>
-                        <li>AWS, Docker</li>
+                        <li>AWS, Vercel, Docker</li>
                         <li>Concurrency, schedulers</li>
                         <li>Transactional systems</li>
                     </ul>
